@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('web developer')->default(0);
+            $table->boolean('game developer')->default(0);
         });
     }
 

@@ -11356,3 +11356,11 @@ a.text-dark:focus {
   }
 }
 
+.myr {
+  border: solid green 1px;
+}
+
+.myc {
+  border: solid blue 1px;
+}
+

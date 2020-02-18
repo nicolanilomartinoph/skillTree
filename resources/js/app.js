@@ -19,18 +19,45 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example', require('./components/ExampleComponent.vue').default);
-//Vue.component('test', require('./components/Test.vue').default);
+//Vue.component('programmer', require('./components/Programmer.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import store from './store.js';
+import programmer from './components/Programmer/Programmer.vue';
+import vueRouter from 'vue-router'
+import test from './testRoute.vue'
 
+Vue.use(vueRouter);
+
+const router = new vueRouter({
+    routes: [
+        { path: '/', component: programmer }
+        , { path: '/test', component: test }
+    ],
+    mode: 'history'
+})
 
 const app = new Vue({
-    el: '#app'
-
+    el: '#appVue',
+    store,
+    router,
+    data: {
+        test: "TEST"
+    },
+    template: `
+    <div class="row">
+        <router-link to="/" >TEST 1</router-link>
+        <router-link to="/test" >TEST 2</router-link>
+    </div2>
+    <router-view></router-view>
+    `
 });
+
+
+
+
 
